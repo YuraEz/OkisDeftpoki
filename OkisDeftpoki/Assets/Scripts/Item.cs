@@ -46,8 +46,8 @@ public class Item : MonoBehaviour
         {
             if (restore)
             {
-                PlayerPrefs.SetInt("bg", 2);
-                PlayerPrefs.SetInt("card", 2);
+              //  PlayerPrefs.SetInt("bg", 2);
+               // PlayerPrefs.SetInt("card", 2);
                 BuyBG();
             }
        

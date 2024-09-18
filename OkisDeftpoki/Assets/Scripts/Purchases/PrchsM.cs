@@ -148,8 +148,16 @@ public class PrchsM : MonoBehaviour, IDetailedStoreListener
                 if (result)
                 {
                     Debug.Log("Purchases successfully restored.");
-                  
-                    onMs?.Invoke(true);
+                    if (PlayerPrefs.GetInt("restored", 0) == 0)
+                    {
+                        onMs?.Invoke(true);
+                        ServiceLocator.GetService<ScoreManager>().ChangeValue(500, true);
+                        ServiceLocator.GetService<ScoreManager>().ChangeValue(1500, true);
+                        ServiceLocator.GetService<ScoreManager>().ChangeValue(4500, true);
+                        ServiceLocator.GetService<ScoreManager>().ChangeValue(13500, true);
+                        PlayerPrefs.SetInt("restored", 1);
+                    }
+                
 
                 }
                 else
@@ -168,5 +176,6 @@ public class PrchsM : MonoBehaviour, IDetailedStoreListener
     {
         PokupkaScreen.Instance.ShowFailed();
         Debug.Log($"Purchase of {product.definition.id} failed due to {failureDescription}");
+      
     }
 }
