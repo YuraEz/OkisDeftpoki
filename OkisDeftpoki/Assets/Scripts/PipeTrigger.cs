@@ -12,6 +12,7 @@ public class PipeTrigger : MonoBehaviour
             collision.gameObject.GetComponent<Ball>().animator.SetTrigger("catch"); // (false);
             Destroy(collision.gameObject, 1f);
             ServiceLocator.GetService<ScoreManager>().ChangeValue(25);//, true);
+            ServiceLocator.GetService<BallSpawner>().AddBalls(2);//, true);
         }
     }
 }

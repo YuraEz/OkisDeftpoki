@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,7 +12,23 @@ public class BallSpawner : MonoBehaviour//, IPointerDownHandler, IBeginDragHandl
     // Объект с коллайдером, внутри которого можно спавнить
     public GameObject spawnAreaObject;
 
+    // TextMeshPro для отображения количества шаров
+    public TextMeshProUGUI ballsCountText;
+
+    // Переменная для количества шаров
+    public int ballCount = 5;  // Начальное количество шаров
+
     private Collider2D spawnAreaCollider;
+
+    private void OnEnable()
+    {
+        ServiceLocator.AddService(this);
+    }
+
+    private void OnDisable()
+    {
+        ServiceLocator.RemoveService(this);
+    }
 
     void Start()
     {
@@ -21,6 +38,18 @@ public class BallSpawner : MonoBehaviour//, IPointerDownHandler, IBeginDragHandl
         {
             Debug.LogError("У объекта spawnAreaObject отсутствует Collider2D!");
         }
+
+        // Обновляем текст отображения количества шаров
+        UpdateBallsCountText();
+    }
+
+
+    [SerializeField] private Animator effect;
+
+    private void ChangeScreen()
+    {
+        ServiceLocator.GetService<UIMANAGER>().ChangeScreen("lose");
+
     }
 
     void Update()
@@ -28,6 +57,17 @@ public class BallSpawner : MonoBehaviour//, IPointerDownHandler, IBeginDragHandl
         // Проверяем касание экрана или клик мыши
         if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
         {
+            // Если шары закончились
+            if (ballCount == 0)
+            {
+
+                if (effect) effect.SetTrigger("exit");
+                print("Вы не можете спавнить шар: у вас закончились шары!");
+                Invoke(nameof(ChangeScreen), 0.25f);
+                //, true);
+                return; // Выходим из метода, если шаров нет
+            }
+
             Vector3 touchPosition;
 
             if (Input.touchCount > 0)
@@ -53,11 +93,35 @@ public class BallSpawner : MonoBehaviour//, IPointerDownHandler, IBeginDragHandl
 
                 // Спавним объект в точке касания/клика
                 Instantiate(objectToSpawn, worldPosition, Quaternion.identity);
+
+                // Уменьшаем количество шаров
+                ballCount--;
+
+                // Обновляем текст отображения количества шаров
+                UpdateBallsCountText();
             }
             else
             {
                 print("Касание за пределами области спавна");
             }
+        }
+    }
+
+    // Метод для увеличения количества шаров
+    public void AddBalls(int amount)
+    {
+        ballCount += amount;
+
+        // Обновляем текст отображения количества шаров
+        UpdateBallsCountText();
+    }
+
+    // Обновление текста количества шаров
+    private void UpdateBallsCountText()
+    {
+        if (ballsCountText != null)
+        {
+            ballsCountText.text = ballCount.ToString();
         }
     }
 
