@@ -3097,6 +3097,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5948625496347698096, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
       insertIndex: -1
       addedObject: {fileID: 681818052}
+    - targetCorrespondingSourceObject: {fileID: 5948625496347698096, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 681818053}
   m_SourcePrefab: {fileID: 100100000, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
 --- !u!224 &681818046 stripped
 RectTransform:
@@ -3116,7 +3119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Menu
-  delay: 0
+  delay: 0.25
   isRetry: 0
   isNextScene: 0
   isLvl: 0
@@ -3138,6 +3141,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &681818053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458183172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda765de5403f664e9485ffd4bbc4e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenName: menu
+  effect: {fileID: 1477037110}
+  delay: 0.25
 --- !u!1 &690790430
 GameObject:
   m_ObjectHideFlags: 0

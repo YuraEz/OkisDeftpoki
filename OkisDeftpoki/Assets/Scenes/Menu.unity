@@ -2853,7 +2853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &559513105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3226,7 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dda765de5403f664e9485ffd4bbc4e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenName: main
+  screenName: menu
   effect: {fileID: 1477037110}
   delay: 0.25
 --- !u!1 &584499548 stripped
@@ -5258,6 +5258,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4053010083870629880, guid: fa8c8ca4853668e459f91e951e36a924, type: 3}
   m_PrefabInstance: {fileID: 945556119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &954352480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5948625496347698096, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
+  m_PrefabInstance: {fileID: 1668471776}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &967385856
 PrefabInstance:
@@ -8468,13 +8473,56 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5948625496347698096, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668471783}
+    - targetCorrespondingSourceObject: {fileID: 5948625496347698096, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1668471782}
   m_SourcePrefab: {fileID: 100100000, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
 --- !u!224 &1668471777 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4829012115294199206, guid: deb3254ac5f494641b27ca099acc6a96, type: 3}
   m_PrefabInstance: {fileID: 1668471776}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668471782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954352480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff52dd87a112129469c6bde483f456eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Tutorial
+  delay: 0.25
+  isRetry: 0
+  isNextScene: 0
+  isLvl: 0
+  lvl1: 0
+  locked: {fileID: 0}
+  textMeshProUGUI: {fileID: 0}
+  textMeshProUGUI2: {fileID: 0}
+  btn1: {fileID: 0}
+--- !u!114 &1668471783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954352480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda765de5403f664e9485ffd4bbc4e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenName: menu
+  effect: {fileID: 1477037110}
+  delay: 0.25
 --- !u!1 &1671647903
 GameObject:
   m_ObjectHideFlags: 0
@@ -10316,7 +10364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2022321476
 MonoBehaviour:
   m_ObjectHideFlags: 0
